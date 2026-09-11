@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Dra. Sharon Valencia Álvarez — Tarjeta digital</title>
+
+<!-- Home-screen app icon (iOS + Android). Her logo has no transparency, so iOS's
+     squircle mask cuts into white rather than into black. -->
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Dra. Sharon">
+<meta name="application-name" content="Dra. Sharon">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0A1014">
+
+<!-- House typefaces, matching every shipped sharkitect-cards build. Orbitron's
+     unicode-range is U+0000-00FF, which covers this card's Spanish accents. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1014; --card:#121A20; --line:rgba(255,255,255,.09);
+    --txt:#F2F5F7; --muted:#9AA7B0;
+    /* Sampled from her own logo file, never guessed:
+       teal #009C90 (left heart) / blue #0054B4 (right heart) / gold #E99103 (disc) */
+    --brand1:#009C90; --brand2:#0054B4; --brand-lite:#22C3B4; --gold:#E99103;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{
+    background:var(--bg); color:var(--txt);
+    font-family:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; font-weight:400; line-height:1.45;
+    min-height:100vh; min-height:100dvh;
+    display:flex; align-items:center; justify-content:center;
+    padding:calc(env(safe-area-inset-top,0px) + 26px) 18px calc(env(safe-area-inset-bottom,0px) + 26px);
+    overflow-x:hidden;
+  }
+  .card{width:100%;max-width:420px;margin:auto}
+  .rule{height:2px;border-radius:2px;background:linear-gradient(90deg,var(--brand1),var(--brand2));margin-bottom:18px}
+
+  .lang{display:flex;justify-content:flex-end;gap:6px;margin-bottom:14px}
+  .lang button{
+    background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);
+    font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;
+    padding:6px 12px;border-radius:999px;cursor:pointer;
+  }
+  .lang button.on{background:var(--brand1);border-color:var(--brand1);color:#fff}
+
+  .top{text-align:center}
+  .shot{
+    width:132px;height:132px;border-radius:50%;margin:0 auto 18px;
+    object-fit:cover;display:block;border:2px solid rgba(255,255,255,.14);
+    background:linear-gradient(150deg,#1B2830,#0E1519);
+  }
+  h1{font-family:'Orbitron',sans-serif;font-size:21px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;line-height:1.25}
+  .spec{color:var(--muted);font-size:12.5px;font-weight:400;margin-top:8px}
+  .loc{color:var(--brand-lite);font-family:'Orbitron',sans-serif;font-size:11px;font-weight:500;
+       letter-spacing:2px;text-transform:uppercase;margin-top:10px;line-height:1.5}
+
+  /* Divider carries her trade: a heart, echoing the mark in her own logo. */
+  .divider{display:flex;align-items:center;justify-content:center;gap:12px;width:190px;margin:22px auto}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  .glyph{width:18px;height:18px;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(34,195,180,.45))}
+
+  .rows{display:flex;flex-direction:column;gap:10px}
+  a.row{
+    display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--txt);
+    background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  }
+  a.row:active{background:rgba(255,255,255,.07)}
+  .ico{width:22px;height:22px;flex:0 0 22px;stroke:var(--muted);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .lab{font-size:11px;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+  .val{font-size:15px;margin-top:1px;word-break:break-word}
+
+  .save-btn{
+    display:block;width:100%;margin-top:22px;padding:17px;border:0;border-radius:14px;
+    background:linear-gradient(90deg,var(--brand1),var(--brand2));
+    color:#fff;font-family:'Montserrat',sans-serif;font-size:16px;font-weight:600;letter-spacing:.3px;cursor:pointer;
+  }
+  .save-btn:active{opacity:.88}
+
+  .foot{text-align:center;color:var(--muted);font-size:11px;margin-top:24px;line-height:1.7}
+  .ced{color:var(--gold);letter-spacing:.5px}
+
+  .ov{position:fixed;inset:0;background:rgba(5,9,11,.9);display:none;align-items:center;justify-content:center;padding:26px;z-index:20}
+  .ov.on{display:flex}
+  .qb{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;text-align:center;max-width:330px;width:100%}
+  .qb img{width:100%;border-radius:12px;background:#fff;display:block}
+  .qt{font-size:15px;font-weight:600;margin-bottom:16px}
+  .qs{font-size:13px;color:var(--muted);margin-top:14px}
+  .cl{margin-top:18px;background:none;border:1px solid var(--line);color:var(--muted);
+      border-radius:10px;padding:11px 26px;font-size:14px;cursor:pointer;font-family:inherit}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="rule"></div>
+
+  <div class="lang">
+    <button id="lang-es" class="on" onclick="setLang('es')">ES</button>
+    <button id="lang-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <div class="top">
+    <img class="shot" src="headshot.jpg" alt="Dra. Sharon Valencia Álvarez">
+    <h1>Dra. Sharon Valencia Álvarez</h1>
+    <div class="spec" data-es="Cardióloga y Ecocardiografista" data-en="Cardiologist &amp; Echocardiographer">Cardióloga y Ecocardiografista</div>
+    <div class="loc">Hospital Galenia &middot; Cancún</div>
+  </div>
+
+  <div class="divider">
+    <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true">
+      <defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#009C90"/><stop offset="100%" stop-color="#0054B4"/>
+      </linearGradient></defs>
+      <path fill="url(#hg)" stroke="none" d="M12 21s-7.5-4.7-9.3-9.2A5.3 5.3 0 0 1 12 6.1a5.3 5.3 0 0 1 9.3 5.7C19.5 16.3 12 21 12 21z"/>
+    </svg>
+  </div>
+
+  <div class="rows">
+    <a class="row" href="tel:+529981471706">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      <div><div class="lab" data-es="Teléfono" data-en="Phone">Teléfono</div><div class="val">+52 998 147 1706</div></div>
+    </a>
+
+    <a class="row" id="wa" href="https://wa.me/529981471706">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.5 8.5 0 1 1 21 11.5z"/></svg>
+      <div><div class="lab">WhatsApp</div><div class="val" data-es="Escríbeme por WhatsApp" data-en="Message me on WhatsApp">Escríbeme por WhatsApp</div></div>
+    </a>
+
+    <a class="row" href="mailto:beatandbreathe@gmail.com">
+      <svg class="ico" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2.5 6.5 9.5 6 9.5-6"/></svg>
+      <div><div class="lab" data-es="Correo" data-en="Email">Correo</div><div class="val">beatandbreathe@gmail.com</div></div>
+    </a>
+
+    <a class="row" href="https://www.doctoralia.com.mx/z/V6jYNs" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5a15 15 0 0 1 0 19a15 15 0 0 1 0-19"/></svg>
+      <div><div class="lab">Doctoralia</div><div class="val" data-es="Agendar cita" data-en="Book an appointment">Agendar cita</div></div>
+    </a>
+
+    <a class="row" href="https://www.instagram.com/cardio_valencia" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <div><div class="lab">Instagram</div><div class="val">@cardio_valencia</div></div>
+    </a>
+
+    <a class="row" href="https://www.facebook.com/100090436062203" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24"><path d="M14.5 8.5h2.3V5.6h-2.6c-2.3 0-3.7 1.4-3.7 3.8v1.9H8.2v3h2.3V21h3.2v-6.7h2.4l.4-3h-2.8v-1.6c0-.8.3-1.2 1.1-1.2z"/></svg>
+      <div><div class="lab">Facebook</div><div class="val" data-es="Ver mi página" data-en="View my page">Ver mi página</div></div>
+    </a>
+  </div>
+
+  <button class="save-btn" onclick="toggleQR()" data-es="Guardar mi contacto" data-en="Save my contact">Guardar mi contacto</button>
+
+  <div class="foot">
+    <span class="ced" data-es="Cédula Profesional 12505405" data-en="Medical Licence 12505405">Cédula Profesional 12505405</span><br>
+    <span data-es="Centro Cardiológico y Pulmonar &middot; Hospital Galenia" data-en="Cardiology &amp; Pulmonary Centre &middot; Hospital Galenia">Centro Cardiológico y Pulmonar &middot; Hospital Galenia</span><br>
+    <span data-es="Torre B &middot; Consultorio 412 &middot; Av. Tulum SM 12" data-en="Tower B &middot; Suite 412 &middot; Av. Tulum SM 12">Torre B &middot; Consultorio 412 &middot; Av. Tulum SM 12</span><br>
+    Cancún, Q. Roo 77504 &middot; México
+  </div>
+</div>
+
+<div class="ov" id="ov" onclick="if(event.target===this)this.classList.remove('on')">
+  <div class="qb">
+    <div class="qt" data-es="Escanea para guardarme" data-en="Scan to save me">Escanea para guardarme</div>
+    <img src="qr-onpage.png" alt="QR">
+    <div class="qs" data-es="Se guarda directo en sus contactos." data-en="Saves straight into their contacts.">Se guarda directo en sus contactos.</div>
+    <button class="cl" onclick="toggleQR()" data-es="Cerrar" data-en="Close">Cerrar</button>
+  </div>
+</div>
+
+<script>
+  var WA = {
+    es: "https://wa.me/529981471706?text=" + encodeURIComponent("Hola Dra. Valencia, me dio su tarjeta. Quisiera agendar una cita."),
+    en: "https://wa.me/529981471706?text=" + encodeURIComponent("Hello Dr. Valencia, you gave me your card. I would like to book an appointment.")
+  };
+
+  function toggleQR(){ document.getElementById("ov").classList.toggle("on"); }
+
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-es]").forEach(function(el){
+      el.innerHTML = (l === "en") ? el.getAttribute("data-en") : el.getAttribute("data-es");
+    });
+    document.getElementById("wa").href = WA[l];
+    document.getElementById("lang-es").classList.toggle("on", l === "es");
+    document.getElementById("lang-en").classList.toggle("on", l === "en");
+    try { localStorage.setItem("bb-lang", l); } catch(e) {}
+  }
+
+  var saved = "es";
+  try { saved = localStorage.getItem("bb-lang") || "es"; } catch(e) {}
+  setLang(saved);
+</script>
+</body>
+</html>
