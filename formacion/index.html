@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Dra. Sharon Valencia Álvarez &mdash; Mi formaci&oacute;n</title>
+<meta name="theme-color" content="#0A1014">
+<link rel="apple-touch-icon" sizes="180x180" href="../icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+
+<!-- House typefaces, matching every shipped sharkitect-cards build. Orbitron's
+     unicode-range is U+0000-00FF, which covers this page's Spanish accents. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A1014; --card:#121A20; --line:rgba(255,255,255,.09);
+    --txt:#F2F5F7; --muted:#9AA7B0;
+    /* Sampled from her own assets, never guessed. */
+    --brand1:#009C90; --brand2:#0054B4; --gold:#E99103;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{
+    background:var(--bg); color:var(--txt);
+    font-family:'Montserrat',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; font-weight:400; line-height:1.45;
+    min-height:100vh; min-height:100dvh;
+    padding:calc(env(safe-area-inset-top,0px) + 26px) 18px calc(env(safe-area-inset-bottom,0px) + 26px);
+    overflow-x:hidden;
+  }
+  .card{width:100%;max-width:420px;margin:0 auto}
+  .rule{height:2px;border-radius:2px;background:linear-gradient(90deg,var(--brand1),var(--brand2));margin-bottom:18px}
+
+  .lang{display:flex;justify-content:flex-end;gap:6px;margin-bottom:14px}
+  .lang button{
+    background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);
+    font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;
+    padding:6px 12px;border-radius:999px;cursor:pointer;
+  }
+  .lang button.on{background:var(--brand1);border-color:var(--brand1);color:#fff}
+
+  /* The portrait carries the page and does not perform (spec section 5). Her
+     background is near-white against a near-black ground, so a bare full-bleed
+     image reads as a bright rectangle. The scrim settles it into the page
+     instead of letting it stop hard. */
+  .hero{position:relative;border-radius:16px;overflow:hidden;margin-bottom:18px;
+         border:1px solid var(--line);background:var(--card)}
+  .hero img{display:block;width:100%;height:auto}
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;
+    background:linear-gradient(to bottom,rgba(10,16,20,0),var(--bg));pointer-events:none}
+
+  /* Her name wraps to two lines on a real phone (375px of card at 430px of
+     viewport). balance splits it evenly instead of stranding the surname alone. */
+  .name{font-family:'Orbitron',sans-serif;font-weight:700;font-size:19px;
+         letter-spacing:.5px;text-transform:uppercase;line-height:1.2;
+         text-wrap:balance}
+  .title{font-size:12.5px;color:var(--muted);margin-top:5px}
+
+  .grp{margin-top:26px}
+  .ghead{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:1.4px;
+          text-transform:uppercase;margin-bottom:12px}
+
+  /* One gold hairline running the length of the credential sequence. */
+  .seq{border-left:1px solid var(--gold);padding-left:16px;
+        display:flex;flex-direction:column;gap:18px}
+  .qual{font-size:11px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase}
+  /* pretty stops a wrapped institution stranding its last word -- without it,
+     Instituto Nacional de Cardiologia "Ignacio Chavez" leaves the closing quote
+     orphaned on its own line. */
+  .inst{font-size:15px;color:var(--txt);font-weight:500;margin-top:2px;
+         line-height:1.3;text-wrap:pretty}
+  .plain{font-size:12px;color:var(--muted);font-style:italic;margin-top:5px;line-height:1.45}
+
+  .procs{list-style:none;columns:2;column-gap:18px}
+  .proc{font-size:13px;color:var(--txt);margin-bottom:7px;break-inside:avoid;line-height:1.3}
+
+  .lic{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
+        font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .verified{color:var(--brand1);font-weight:700}
+
+  .foot{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+  .foot a{
+    display:block;text-align:center;text-decoration:none;color:var(--txt);
+    background:rgba(255,255,255,.035);border:1px solid var(--line);
+    border-radius:14px;padding:13px 16px;font-size:14px;
+  }
+  .foot a:active{background:rgba(255,255,255,.07)}
+  .attrib{margin-top:20px;text-align:center;font-size:10px;
+           color:rgba(255,255,255,.25);letter-spacing:.3px}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="rule"></div>
+  <div class="lang">
+    <button id="lang-es" class="on" onclick="setLang('es')">ES</button>
+    <button id="lang-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <div class="hero"><img src="portrait.jpg" alt="Dra. Sharon Valencia Álvarez" width="900" height="1350"></div>
+  <h1 class="name">Dra. Sharon Valencia Álvarez</h1>
+  <div class="title" data-es="Cardióloga y Ecocardiografista" data-en="Cardiologist &amp; Echocardiographer">Cardióloga y Ecocardiografista</div>
+
+  <section class="grp"><h2 class="ghead" data-es="Formación" data-en="Training">Formación</h2><div class="seq"><div class="cred"><div class="qual" data-es="Médico General" data-en="Doctor of Medicine">Médico General</div><div class="inst">Facultad de Medicina, Universidad Nacional Autónoma de México</div><div class="plain" data-es="La facultad de medicina de la universidad pública nacional de México." data-en="The medical faculty of Mexico&#x27;s national public university.">La facultad de medicina de la universidad pública nacional de México.</div></div><div class="cred"><div class="qual" data-es="Especialidad en Cardiología Clínica de Adultos" data-en="Specialty in Adult Clinical Cardiology">Especialidad en Cardiología Clínica de Adultos</div><div class="inst">Instituto Nacional de Cardiología &quot;Ignacio Chávez&quot;</div><div class="plain" data-es="Uno de los Institutos Nacionales de Salud de México, dedicado por completo al corazón." data-en="One of Mexico&#x27;s National Institutes of Health, dedicated entirely to the heart.">Uno de los Institutos Nacionales de Salud de México, dedicado por completo al corazón.</div></div><div class="cred"><div class="qual" data-es="Alta Especialidad en Ecocardiografía de Adultos" data-en="Advanced Subspecialty in Adult Echocardiography">Alta Especialidad en Ecocardiografía de Adultos</div><div class="inst">Instituto Nacional de Cardiología &quot;Ignacio Chávez&quot;</div><div class="plain" data-es="Formación adicional que cursó en el mismo instituto, después de terminar la especialidad en cardiología." data-en="Further training she completed at the same institute, after finishing the cardiology specialty.">Formación adicional que cursó en el mismo instituto, después de terminar la especialidad en cardiología.</div></div></div></section><section class="grp"><h2 class="ghead" data-es="Certificación" data-en="Certification">Certificación</h2><div class="seq"><div class="cred"><div class="qual" data-es="Recertificada" data-en="Recertified">Recertificada</div><div class="inst">Consejo Nacional de Cardiología</div><div class="plain" data-es="Significa que volvió a evaluarse ante el consejo para mantener vigente su certificación." data-en="It means she was re-evaluated by the board to keep her certification current.">Significa que volvió a evaluarse ante el consejo para mantener vigente su certificación.</div></div></div></section><section class="grp"><h2 class="ghead" data-es="Trayectoria" data-en="Standing">Trayectoria</h2><div class="seq"><div class="cred"><div class="qual" data-es="Secretaria de la Mesa Directiva" data-en="Secretary of the Board">Secretaria de la Mesa Directiva</div><div class="inst">Colegio de Cardiólogos de Quintana Roo</div><div class="plain" data-es="Cargo electo dentro del colegio que agrupa a los cardiólogos del estado." data-en="An elected position within the body that represents the state&#x27;s cardiologists.">Cargo electo dentro del colegio que agrupa a los cardiólogos del estado.</div></div><div class="cred"><div class="qual" data-es="Miembro" data-en="Member">Miembro</div><div class="inst">Centro Cardiológico y Pulmonar del Hospital Galenia</div><div class="plain" data-es="Donde atiende actualmente, en Cancún." data-en="Where she currently practises, in Cancún.">Donde atiende actualmente, en Cancún.</div></div></div></section>
+  <section class="grp"><h2 class="ghead" data-es="Qué atiendo" data-en="What I treat">Qué atiendo</h2><ul class="procs"><li class="proc" data-es="Cardiología clínica" data-en="Clinical cardiology">Cardiología clínica</li><li class="proc" data-es="Ecocardiograma transtorácico" data-en="Transthoracic echocardiogram">Ecocardiograma transtorácico</li><li class="proc" data-es="Ecocardiograma transesofágico" data-en="Transesophageal echocardiogram">Ecocardiograma transesofágico</li><li class="proc" data-es="Ecocardiograma de estrés" data-en="Stress echocardiogram">Ecocardiograma de estrés</li><li class="proc" data-es="Holter de 24 horas" data-en="24-hour Holter monitoring">Holter de 24 horas</li><li class="proc" data-es="MAPA (monitoreo ambulatorio de presión arterial)" data-en="Ambulatory blood-pressure monitoring">MAPA (monitoreo ambulatorio de presión arterial)</li><li class="proc" data-es="Electrocardiograma" data-en="Electrocardiogram">Electrocardiograma</li><li class="proc" data-es="Prueba de esfuerzo" data-en="Stress testing">Prueba de esfuerzo</li><li class="proc" data-es="Valoración preoperatoria cardiovascular" data-en="Pre-operative cardiac evaluation">Valoración preoperatoria cardiovascular</li></ul></section>
+  <div class="lic"><span data-es="C&eacute;dula Profesional 12505405" data-en="Professional Licence 12505405">C&eacute;dula Profesional 12505405</span></div>
+
+  <nav class="foot">
+    <a href="https://cards.sharkitectdigital.com/sharon-valencia/" data-es="Volver a mi tarjeta" data-en="Back to my card">Volver a mi tarjeta</a>
+    <a href="https://www.doctoralia.com.mx/z/V6jYNs" data-es="Agendar una cita" data-en="Book an appointment">Agendar una cita</a>
+  </nav>
+  <div class="attrib" data-es="Tarjeta digital por Sharkitect Digital" data-en="Digital card by Sharkitect Digital">Tarjeta digital por Sharkitect Digital</div>
+</main>
+
+<script>
+  /* Same behaviour as the card: swap the [data-es] leaves, remember the choice
+     per device. The card's own setLang also rewrites a WhatsApp href; this page
+     has no such element, so that line is deliberately NOT copied -- it would
+     throw and take the whole toggle down with it. */
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-es]").forEach(function(el){
+      el.innerHTML = (l === "en") ? el.getAttribute("data-en") : el.getAttribute("data-es");
+    });
+    document.getElementById("lang-es").classList.toggle("on", l === "es");
+    document.getElementById("lang-en").classList.toggle("on", l === "en");
+    try { localStorage.setItem("bb-lang", l); } catch(e) {}
+  }
+  var saved = "es";
+  try { saved = localStorage.getItem("bb-lang") || "es"; } catch(e) {}
+  setLang(saved);
+</script>
+</body>
+</html>
