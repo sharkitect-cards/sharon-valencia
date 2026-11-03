@@ -1,4 +1,4 @@
-# Dra. Sharon Valencia Álvarez — digital card
+# Dra. Jessrel Sharon Valencia Álvarez — digital card
 
 Live: https://cards.sharkitectdigital.com/sharon-valencia/
 Contact file (what the QR and the NFC chip point at): `/sharon-valencia/contact.vcf`
@@ -55,3 +55,12 @@ it is her own booking page.
 
 `headshot-master.png`, `logo.png`, `hero.png` and `build-assets.py` are build sources and are
 deliberately kept out of this repo.
+
+## Redesign, 2026-11-02 (CLEO)
+
+Rebuilt by CLEO on the CEO's direction (option A "Rosa", full-width heartbeat line), chosen from three options.
+- Name and title now exactly as her own logo lockup: **Dra. Jessrel Sharon Valencia Álvarez**, **Cardiología clínica y Ecocardiografía**. Same on `formacion/`.
+- New phone **+52 998 398 4609** for call and WhatsApp (page and contact.vcf). Old 998 147 1706 removed.
+- Her SV logo replaces Beat & Breathe as the home-screen icon and the QR center. QR still encodes `/sharon-valencia/contact.vcf`, so printed QRs and the tap card keep working.
+- Colors: blush, navy and rose, from her logo's navy and blues plus the pink she asked for. Fonts: Fraunces + Outfit.
+- Source and build scripts: CLEO `projects/clients/sharon-valencia/card-redesign/`.
